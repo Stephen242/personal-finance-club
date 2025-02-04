@@ -18,10 +18,12 @@ header {
 /* Navigation Bar */
 .navbar {
     display: flex;
+    position: fixed;
+    top: 0;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 10px 40px;
+    width: 97vw;
+    padding: 15px 25px;
     background-color: white;
     border-bottom: 3px solid white;
     margin: 0;
@@ -30,6 +32,7 @@ header {
 
 .logo img {
     height: 50px;
+    margin-left: 35px;
 }
 
 .nav-links {
