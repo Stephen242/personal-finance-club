@@ -48,3 +48,36 @@ header {
     font-weight: 500;
     position: relative; /* Position for underline effect */
 }
+
+/* Hero */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 70vh;
+    background-image: url('../images/temp.jpg');
+    background-color: #f0f0f0; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem; /* Larger font size */
+    font-weight: 700; /* Bold text */
+    line-height: 1.2; /* Adjust spacing between lines */
+    color: white; /* White text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    margin: 0; /* Remove default margin */
+}
+
+.hero h1 span {
+    font-size: 2rem; /* Smaller font size for subtitle */
+    font-weight: 500; /* Normal weight (non-bold) */
+    display: block; /* Ensure it's on its own line */
+    margin-top: 15px; /* Add spacing between main text and subtitle */
+    color: white; /* Keep the color white */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Same shadow for consistency */
+}
