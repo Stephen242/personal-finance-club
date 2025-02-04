@@ -81,3 +81,22 @@ header {
     color: white; /* Keep the color white */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Same shadow for consistency */
 }
+
+/* About Section */
+.about-section {
+    text-align: center; /* Center-align text */
+    max-width: 900px; /* Limit the width of the content */
+    margin: 50px auto; /* Center the section with vertical spacing */
+    padding: 20px; /* Add internal padding */
+    font-size: 1rem; /* Standard font size */
+    line-height: 1.8; /* Improve readability */
+    color: #111; /* Neutral dark text color for contrast */
+    font-weight: 400; /* Normal text weight */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
