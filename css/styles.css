@@ -37,6 +37,7 @@ header {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 30px;
     margin: 0;
     padding: 0;
@@ -50,6 +51,22 @@ header {
     font-size: 17px;
     font-weight: 500;
     position: relative; /* Position for underline effect */
+}
+
+.btn-contact {
+    display: flex;
+    padding: 10px 10px;
+    background-color: gold;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: #0056b3;
 }
 
 /* Hero */
