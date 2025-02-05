@@ -11,9 +11,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px;
     background-color: white;
-    color: white;
 }
 
 /* Navigation Bar */
@@ -23,25 +21,26 @@ header {
     top: 0;
     justify-content: space-between;
     align-items: center;
-    width: 97vw;
+    width: 100%;
     padding: 10px 20px;
     background-color: white;
     border-bottom: 3px solid white;
-    margin: 0;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
-.logo img {
+.logo {
     height: 50px;
-    margin-left: 35px;
+    width: 50px;
+    margin-left: 30px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
     margin: 0;
     padding: 0;
+    margin-right: 60px;
 }
 
 .nav-links li a {
