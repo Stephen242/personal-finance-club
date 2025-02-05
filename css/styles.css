@@ -24,7 +24,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 97vw;
-    padding: 15px 25px;
+    padding: 10px 20px;
     background-color: white;
     border-bottom: 3px solid white;
     margin: 0;
@@ -60,7 +60,7 @@ header {
     align-items: center;
     text-align: center;
     min-height: 70vh;
-    background-image: url('../images/temp.jpg');
+    background-image: url('../images/hero.jpg');
     background-color: #f0f0f0; /* Fallback color */
     background-size: cover;
     background-position: center;
