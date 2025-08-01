@@ -12,15 +12,10 @@
         <nav class="navbar">
             <a href="index.html">
                 <img src="images/logo.png" alt="logo" class="logo">
-            </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>            
+            </a>           
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="team.html">Our Team</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="sponsors.html">Sponsors</a></li>
@@ -36,19 +31,88 @@
     </section>
 
     <section id="about" class="about-section">
-        <p>
-            UNSW Personal Finance Club (PFC) is a student run non-constituent society, 
-            with the primary goal of upskilling our members in the area of financial management. 
-            We aim to educate young people of all backgrounds to take responsibility for themselves 
-            and make sound financial decisions.
-        </p>
+        <div class="about-container">
+            <h2>About Us</h2>
+            <p>
+                Established in 2023, the UNSW Personal Finance Club (PFC) is a passionate student society 
+                at the University of New South Wales. With a thriving and growing community, PFC is dedicated 
+                to equipping UNSW students with practical knowledge in budgeting, investing, tax, and financial 
+                wellbeing. Our mission is to empower students to take control of their finances and build a 
+                confident financial future.
+            </p>
+        </div>
     </section>
 
-    <footer>
-        <p>UNSW Personal Finance Club</p>
-        <p>This PFC publication is proudly sponsored by Arc</p>
+    <section class="mission-section">
+        <div class="mission-container">
+            <h2>Our Mission</h2>
+            <p class="mission-subtitle">
+                Our mission is to empower students to take action towards a financially secure future. 
+                We hope to help facilitate students with their transition from university to adult life, 
+                with specific attention to the area of personal finance as it enables them to better pursue their various goals.
+            </p>
+            
+            <div class="mission-pillars">
+                <div class="pillar">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Building Money Skills</h3>
+                    <p>Building real-world money skills</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Financial Guidance</h3>
+                    <p>Personalised financial guidance</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Supportive student community</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-branding">
+                    <img src="images/logo.png" alt="UNSW PFC Logo" class="footer-logo">
+                    <h3>UNSW Personal Finance Club</h3>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:unswpfc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/unswpfc/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/unswpfc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/unswpfc" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="arc-sponsorship">
+                    <img src="images/arc-logo.png" alt="Arc Logo" class="arc-logo">
+                    <p>This PFC publication is proudly supported by Arc</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="newsletter-signup">
+                    <h4>Stay Updated</h4>
+                    <p>Sign up with your email address to receive news and updates.</p>
+                    <form class="signup-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="signup-button">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Font awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/script.js"></script>
 </body>
 </html>
