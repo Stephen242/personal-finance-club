@@ -50,7 +50,7 @@ header {
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     font-weight: 500;
-    position: relative; /* Position for underline effect */
+    position: relative;
 }
 
 .btn-contact {
