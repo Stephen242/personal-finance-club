@@ -26,6 +26,7 @@ header {
     background-color: white;
     border-bottom: 3px solid white;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 .logo {
@@ -434,5 +435,176 @@ header {
 
     .signup-form {
         width: 100%;
+    }
+}
+
+/* Team Page Styles */
+.team-hero {
+    position: relative;
+    height: 70vh;
+    background-image: url('../images/team-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.team-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
+}
+
+.team-hero h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Poppins', sans-serif;
+}
+
+.executives-section {
+    padding: 40px 20px;
+    background-color: white;
+}
+
+.executives-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.executives-section h2 {
+    color: #1B2A4A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.executives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    justify-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.executive-card {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    padding-top: 125%; /* 5:4 aspect ratio */
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.photo-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.degree-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(27, 42, 74, 0.9);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.degree-overlay p {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.photo-container:hover .degree-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photo-container:hover img {
+    transform: scale(1.05);
+}
+
+.exec-name {
+    color: #1B2A4A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.exec-role {
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Responsive Team Page */
+@media (max-width: 768px) {
+    .team-hero h1 {
+        font-size: 3rem;
+    }
+
+    .executives-section {
+        padding: 60px 16px;
+    }
+
+    .executives-section h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .executives-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .executive-card {
+        max-width: 300px;
+    }
+
+    .exec-name {
+        font-size: 1.2rem;
+    }
+
+    .exec-role {
+        font-size: 1rem;
     }
 }
