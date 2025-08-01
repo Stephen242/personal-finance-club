@@ -3,31 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - PFC</title>
+    <title>Publications - UNSW Personal Finance Club</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
             <a href="index.html">
-                <img src="images/logo.png" alt="logo" class="logo">
+                <img src="images/logo.png" alt="UNSW Personal Finance Club Logo" class="logo">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="team.html">Our Team</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="publications.html">Publications</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
                 <li><a href="sponsors.html">Sponsors</a></li>
                 <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <section>
-        <h1>Publications</h1>
-        <p>Check out our latest newsletters and financial guides.</p>
-    </section>
+    <main>
+        <section class="publications-hero">
+            <div class="overlay"></div>
+            <h1>Our Publications</h1>
+        </section>
 
+        <section class="publications-grid">
+            <article class="publication-card">
+                <div class="publication-image">
+                    <img src="images/publications/edition1.png" alt="Edition 1: 2025FY Wrap up">
+                </div>
+                <div class="publication-content">
+                    <p class="publication-date">July 2025</p>
+                    <h2 class="publication-title">Edition 1: 2025FY Wrap up</h2>
+                    <p class="publication-summary">We’re here to bring you quick, clear and student-made market updates. All designed to keep you informed in under a minute. Whether you’re investing, studying, or just curious about what’s driving the headlines, Money Minute keeps you in the loop, made by students, for students.</p>
+                    <a href="https://www.linkedin.com/pulse/edition-1-2025fy-wrap-up-unswpfc-1ykwf/?trackingId=uLQavxxLTui1%2FHCkPQhBtA%3D%3D" class="view-publication">
+                        Read Newsletter <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="publication-card">
+                <div class="publication-image">
+                    <img src="images/publications/investment-guide.jpg" alt="Investment Guide Cover">
+                </div>
+                <div class="publication-content">
+                    <p class="publication-date">May 2023</p>
+                    <h2 class="publication-title">Beginner's Guide to Investment</h2>
+                    <p class="publication-summary">A comprehensive guide for university students looking to start their investment journey. Learn about different investment vehicles, risk management, and building a diversified portfolio.</p>
+                    <a href="#" class="view-publication">
+                        Download Guide <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="publication-card">
+                <div class="publication-image">
+                    <img src="images/publications/newsletter-q1-2023.jpg" alt="Q1 2023 Newsletter Cover">
+                </div>
+                <div class="publication-content">
+                    <p class="publication-date">March 2023</p>
+                    <h2 class="publication-title">Q1 2023 Financial Markets Newsletter</h2>
+                    <p class="publication-summary">Review of the first quarter's market performance, featuring special coverage of the banking sector developments and their impact on global markets.</p>
+                    <a href="#" class="view-publication">
+                        Read Newsletter <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-branding">
+                    <img src="images/logo.png" alt="UNSW PFC Logo" class="footer-logo">
+                    <h3>UNSW Personal Finance Club</h3>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:unswpfc@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/unswpfc/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/unswpfc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/unswpfc" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="arc-sponsorship">
+                    <img src="images/arc-logo.png" alt="Arc Logo" class="arc-logo">
+                    <p>This PFC publication is proudly supported by Arc</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="newsletter-signup">
+                    <h4>Stay Updated</h4>
+                    <p>Sign up with your email address to receive news and updates.</p>
+                    <form class="signup-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="signup-button">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+     <script src="js/script.js"></script>
 </body>
 </html>
