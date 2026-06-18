@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Cards in Australia: What Every Student Should Know</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0F1B2D;
+      --navy-2: #162436;
+      --navy-3: #1E3248;
+      --cream:  #F0EDE6;
+      --muted:  #A8A49E;
+      --amber:  #F5A623;
+      --amber-2:#FFC35A;
+      --sage:   #7A9E8E;
+      --red:    #E05C5C;
+      --serif:  'DM Serif Display', Georgia, serif;
+      --sans:   'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Progress bar */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--amber);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,27,45,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .wordmark {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    nav .reading-time {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Hero */
+    .hero {
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.12;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+    .hero-byline {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .hero-meta {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+
+    /* US vs AU split */
+    .split-panel {
+      max-width: 860px;
+      margin: 0 auto clamp(3rem, 6vw, 5rem);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) { .split-grid { grid-template-columns: 1fr; } }
+    .split-col {
+      padding: 2rem 2rem;
+    }
+    .split-col.us {
+      background: var(--navy-2);
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .split-col.au {
+      background: var(--navy-3);
+    }
+    .split-flag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .split-col.us .split-flag { color: var(--muted); }
+    .split-col.au .split-flag { color: var(--sage); }
+    .split-col h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+    .split-col.us h3 { color: rgba(240,237,230,0.65); }
+    .split-col.au h3 { color: var(--cream); }
+    .split-col p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+    .split-col.us p { color: rgba(240,237,230,0.55); }
+    .split-col.au p { color: rgba(240,237,230,0.78); }
+
+    /* Main article wrapper */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+
+    /* Sections with scroll reveal */
+    .section {
+      margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .section.visible { opacity: 1; transform: translateY(0); }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.75rem;
+    }
+    .section h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.65rem, 3.5vw, 2.3rem);
+      line-height: 1.22;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .section p {
+      color: rgba(240,237,230,0.82);
+      margin-bottom: 1rem;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--amber);
+      margin: 2.25rem 0;
+      padding: 0.4rem 0 0.4rem 1.75rem;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--cream) !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Key terms grid */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.75rem 0;
+    }
+    .term-card {
+      background: var(--navy-2);
+      padding: 1.35rem 1.5rem;
+      transition: background 0.2s;
+    }
+    .term-card:hover { background: var(--navy-3); }
+    .term-title {
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      color: var(--amber);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+    }
+    .term-body {
+      font-size: 0.875rem;
+      color: rgba(240,237,230,0.72);
+      line-height: 1.6;
+    }
+
+    /* Example box */
+    .example-box {
+      background: rgba(122,158,142,0.08);
+      border: 1px solid rgba(122,158,142,0.22);
+      border-radius: 12px;
+      padding: 1.35rem 1.6rem;
+      margin: 1.5rem 0;
+    }
+    .example-box .example-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.55rem;
+    }
+    .example-box p {
+      font-size: 0.9rem;
+      color: rgba(240,237,230,0.8);
+      margin-bottom: 0 !important;
+    }
+
+    /* Callout box */
+    .callout {
+      background: rgba(245,166,35,0.07);
+      border: 1px solid rgba(245,166,35,0.22);
+      border-radius: 12px;
+      padding: 1.35rem 1.6rem;
+      margin: 1.75rem 0;
+    }
+    .callout .callout-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.55rem;
+    }
+    .callout p {
+      font-size: 0.9rem;
+      color: rgba(240,237,230,0.8);
+      margin-bottom: 0.4rem !important;
+    }
+    .callout p:last-child { margin-bottom: 0 !important; }
+
+    /* Cash advance grid */
+    .ca-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.75rem 0;
+    }
+    @media (max-width: 580px) { .ca-grid { grid-template-columns: 1fr; } }
+    .ca-item {
+      background: var(--navy-2);
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .ca-icon { font-size: 1.3rem; margin-bottom: 0.1rem; }
+    .ca-title { font-weight: 600; font-size: 0.83rem; color: var(--cream); }
+    .ca-body { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+
+    /* Bullet list */
+    .pdf-list {
+      list-style: none;
+      margin: 1rem 0 1rem 0;
+    }
+    .pdf-list li {
+      position: relative;
+      padding-left: 1.3rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.93rem;
+      color: rgba(240,237,230,0.8);
+      line-height: 1.65;
+    }
+    .pdf-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+    }
+
+    /* Risk list */
+    .risk-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .risk-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(240,237,230,0.82);
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+    .risk-list li:last-child { border-bottom: none; }
+    .risk-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(224,92,92,0.13);
+      border: 1px solid rgba(224,92,92,0.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    /* Decision grid */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (max-width: 560px) { .decision-grid { grid-template-columns: 1fr; } }
+    .decision-card {
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem;
+    }
+    .decision-card.yes {
+      background: rgba(122,158,142,0.09);
+      border: 1px solid rgba(122,158,142,0.28);
+    }
+    .decision-card.no {
+      background: rgba(224,92,92,0.07);
+      border: 1px solid rgba(224,92,92,0.22);
+    }
+    .decision-card h4 {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+      line-height: 1.3;
+    }
+    .decision-card.yes h4 { color: var(--sage); }
+    .decision-card.no h4 { color: var(--red); }
+    .decision-card ul { list-style: none; }
+    .decision-card ul li {
+      font-size: 0.875rem;
+      color: rgba(240,237,230,0.76);
+      padding: 0.28rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.55;
+    }
+    .decision-card.yes ul li::before { content: '✓'; position: absolute; left: 0; color: var(--sage); }
+    .decision-card.no ul li::before  { content: '✗'; position: absolute; left: 0; color: var(--red); }
+
+    /* Card section */
+    .card-section-head {
+      margin-bottom: 1.75rem;
+    }
+    .card-section-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .card-section-head p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .card-tabs {
+      display: flex;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .card-tab {
+      padding: 0.42rem 1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: var(--sans);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .card-tab:hover { border-color: var(--amber); color: var(--amber); }
+    .card-tab.active { background: var(--amber); border-color: var(--amber); color: var(--navy); font-weight: 600; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 1rem;
+    }
+    .card-tile {
+      background: var(--navy-2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card-tile:hover { border-color: rgba(245,166,35,0.32); transform: translateY(-2px); }
+    .card-tile-bank {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .card-tile-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .card-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.42rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.81rem;
+      gap: 0.5rem;
+    }
+    .card-stat:last-of-type { border-bottom: none; }
+    .cs-label { color: var(--muted); flex-shrink: 0; }
+    .cs-value { color: var(--cream); font-weight: 500; text-align: right; }
+    .card-offer {
+      margin-top: 1rem;
+      padding: 0.65rem 0.85rem;
+      background: rgba(245,166,35,0.09);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--amber-2);
+      line-height: 1.55;
+    }
+    .card-tile.hidden { display: none; }
+
+    /* Honourable mention */
+    .mention-box {
+      background: var(--navy-2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1.5rem 1.6rem;
+      margin-top: 1rem;
+    }
+    .mention-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+    .mention-box h4 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 0.65rem;
+    }
+    .mention-box p {
+      font-size: 0.88rem;
+      color: rgba(240,237,230,0.75);
+      line-height: 1.65;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 860px;
+      margin: 4rem auto 0;
+      padding: 3rem clamp(1.5rem, 5vw, 4rem) 3rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .section { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <span class="wordmark">PFC Student Guide</span>
+  <span class="reading-time">8 min read</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-eyebrow">Personal Finance — Australia</span>
+  <h1>Credit Cards in Australia:<br>What Every Student Should Know</h1>
+  <p class="hero-byline">By Namo Wongsiranon & Maxson Chen</p>
+  <div class="hero-meta">
+    <span>Student Finance</span>
+    <span class="dot"></span>
+    <span>Australia</span>
+    <span class="dot"></span>
+    <span>2025 Edition</span>
+  </div>
+</header>
+
+<!-- US vs AU split -->
+<div class="split-panel">
+  <div class="split-grid">
+    <div class="split-col us">
+      <div class="split-flag">🇺🇸 The US Model — Participation-based</div>
+      <h3>Credit score shaped by active participation</h3>
+      <p>Your credit score is heavily shaped by how actively you participate in credit — regular card use, a long credit history, on-time repayments, and keeping balances within certain limits. Avoiding credit altogether can actually make it harder to rent a property, get a loan, or even land certain jobs.</p>
+    </div>
+    <div class="split-col au">
+      <div class="split-flag">🇦🇺 The Australian Model — Risk-focused</div>
+      <h3>Lenders care about repayment, not participation</h3>
+      <p>What lenders care about most is whether you repay on time, whether you've had any defaults or missed payments, and whether you're carrying a manageable level of debt. You don't need a credit card to build a strong financial profile in Australia.</p>
+    </div>
+  </div>
+</div>
+
+<main class="article">
+
+  <!-- Section 1: Credit Score -->
+  <div class="section">
+    <div class="section-label">Understanding your profile</div>
+    <h2>Your "credit score" might not be what you think</h2>
+    <p>This is something a lot of people get tripped up on. When your bank shows you a credit score inside their app — like CommBank's score visible in NetBank — that's not necessarily your official credit score. These are often internal or partner-based indicators sometimes called behavioural scores, which estimate your creditworthiness based on your transaction history and account behaviour. They're a useful rough guide, but they're not the figure a lender pulls when you apply for a loan.</p>
+    <p>Your actual credit score is calculated by credit reporting agencies like Equifax, Experian, or illion, and it's based on a broader picture of your financial behaviour. The main factors include:</p>
+
+    <ul class="pdf-list">
+      <li>Repayment history (whether you pay on time)</li>
+      <li>How often you apply for credit</li>
+      <li>Your credit limits and how much of them you're using</li>
+      <li>Any defaults or late payments</li>
+      <li>The types of credit you hold</li>
+    </ul>
+
+    <div class="pull-quote">
+      <p>Keep in mind that your real credit score is built through consistent, responsible behaviour over time!</p>
+    </div>
+  </div>
+
+  <!-- Section 2: How it works -->
+  <div class="section">
+    <div class="section-label">The basics</div>
+    <h2>How a credit card actually works</h2>
+    <p>A credit card lets you borrow money from a bank up to a set limit, spend it now, and repay it later. Unlike a debit card, you're not spending your own money: you're spending borrowed money that you'll need to pay back.</p>
+
+    <div class="section-label" style="margin-top:1.75rem;">Key Terms Explained</div>
+
+    <div class="terms-grid">
+      <div class="term-card">
+        <div class="term-title">Credit Limit</div>
+        <div class="term-body">The maximum amount you can borrow at once. It's a ceiling, not a target of how much you are supposed to spend. The limit does not reset each month, but depends on your repayments. Common minimum credit limits are $1,000, $6,000, or $15,000 per statement period.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Statement &amp; Billing Cycle</div>
+        <div class="term-body">Roughly 30 days. At the end of each cycle, you receive a statement showing what you spent and what you owe. Keep in mind that the cycle usually starts from when the account was opened, not specifically at the start of a month.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Interest-Free Period</div>
+        <div class="term-body">If you pay your full closing balance by the due date, you will pay no interest. Interest free periods are typically 44 days for rewards cards and 55 days for low-rate cards.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Interest Rate</div>
+        <div class="term-body">Only applies if you don't pay in full. Usually between 11% and 22% depending on the card type.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Minimum Repayment</div>
+        <div class="term-body">Usually 2–3% of your balance. Paying only this avoids late fees but keeps you in debt longer due to interest.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Eligible Purchases</div>
+        <div class="term-body">Most everyday spending including groceries, online shopping, dining out, subscriptions counts as a standard purchase. These transactions benefit from the interest-free period and typically earn any points or cashback the card offers. Think of it as: if you tap or enter your card details, it's an eligible purchase.</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-label">Example</div>
+      <p>Suppose you have an approved credit limit of $1,000. You use $500 and repay back $250 prior to the due date. This means the maximum remaining amount is now $750 as the $1,000 does not reset every statement period.</p>
+    </div>
+
+    <p style="margin-top:1.25rem;"><strong style="color:var(--cream);">Cash advances:</strong> Using your credit card to withdraw cash from an ATM, transfer money to another account, or purchase items like gift cards or gambling is treated as a cash advance.</p>
+
+    <div class="ca-grid" style="margin-top:1rem;">
+      <div class="ca-item">
+        <div class="ca-icon">⏱</div>
+        <div class="ca-title">No interest-free period</div>
+        <div class="ca-body">Interest starts accruing the moment the transaction happens.</div>
+      </div>
+      <div class="ca-item">
+        <div class="ca-icon">📈</div>
+        <div class="ca-title">Higher interest rate</div>
+        <div class="ca-body">Often above 21% — higher than the standard purchase rate on the same card.</div>
+      </div>
+      <div class="ca-item">
+        <div class="ca-icon">💸</div>
+        <div class="ca-title">Cash advance fee</div>
+        <div class="ca-body">Usually around 2–3% of the transaction amount, or a flat fee.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Types of cards -->
+  <div class="section">
+    <div class="section-label">Know your options</div>
+    <h2>Types of Credit Cards in Australia</h2>
+    <p>Now that you understand how credit cards work, here's a rundown of the main types available in Australia and what they're best suited for. The general appeal of cards here is the rewards and introductory offers, but keep in mind that if you're not a consistent big spender, a card might only make sense to hold for the first year to take advantage of a sign-up deal before the second annual fee kicks in.</p>
+
+    <div class="terms-grid" style="margin-top:1.5rem;">
+      <div class="term-card">
+        <div class="term-title">Rewards and Points Cards</div>
+        <div class="term-body">These cards earn you points — either frequent flyer points (Qantas, Velocity, etc.), or a financial institution's own rewards — for every dollar you spend. They're best suited to people who spend a lot and always pay their balance in full. The downsides are high annual fees and the temptation to spend more than you normally would just to chase points.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Cashback Cards</div>
+        <div class="term-body">Instead of points, these cards return a small percentage of your spending as cash. Good for everyday expenses — though the benefits tend to be modest. They're worth looking at when strong introductory cashback offers are running.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Low Interest Rate Cards</div>
+        <div class="term-body">These cards offer a lower purchase rate than standard cards: around 11–13% rather than 20%+. They're aimed at people who might occasionally carry a balance. One thing to be cautious of: a lower rate can create a false sense of security and make carrying a balance feel more acceptable than it should be. Cheaper interest is still interest.</div>
+      </div>
+      <div class="term-card">
+        <div class="term-title">Low Fee / No Fee Cards</div>
+        <div class="term-body">These are the most beginner-friendly option. Minimal or no annual fee, and often a small cashback deal to get you started. Don't expect much in the way of perks, but if you just want to start building good habits without paying too much, this is where to look.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: When it makes sense -->
+  <div class="section">
+    <div class="section-label">Using it wisely</div>
+    <h2>When a credit card actually makes sense</h2>
+    <p>A credit card can genuinely work in your favour when used with intention. Taking advantage of a sign-up cashback offer, earning points on spending you were already planning to make, or using it as a disciplined way to pay for regular expenses and build repayment habits are all reasonable reasons to have one.</p>
+    <p>Where it gets problematic is when a card starts filling gaps in your budget. Using credit to fund a lifestyle you can't really afford, relying on minimum repayments to get by, or using a new card to cover spending from the last one are cycles that are genuinely hard to break out of once you're in them.</p>
+  </div>
+
+  <!-- Section 5: Risks -->
+  <div class="section">
+    <div class="section-label">Watch out for these</div>
+    <h2>Real risks for students worth keeping in mind</h2>
+
+    <ul class="risk-list">
+      <li>
+        <div class="risk-num">1</div>
+        <div><strong style="color:var(--cream);">Overspending.</strong> The minimum credit limit you get approved for is often higher than what you'd earn or usually spend in a normal month, which makes it easy to tap and forget about it until the statement arrives.</div>
+      </li>
+      <li>
+        <div class="risk-num">2</div>
+        <div><strong style="color:var(--cream);">Interest snowball.</strong> Small unpaid balances grow quickly at 20%+ p.a. interest rates.</div>
+      </li>
+      <li>
+        <div class="risk-num">3</div>
+        <div><strong style="color:var(--cream);">Debt cycles.</strong> Using credit to pay off previous spending is a warning sign, not a solution.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Section 6: Should you get one? -->
+  <div class="section">
+    <div class="section-label">The bottom line</div>
+    <h2>So, should you get one?</h2>
+    <p>For most students, it's not a simple yes or no. A credit card can be a useful tool if you can consistently pay the full balance each month, you understand how interest and fees work, and you want to start building responsible financial habits.</p>
+    <p>It's probably worth waiting if your income is inconsistent, you tend to overspend, or you're not in the habit of tracking your expenses.</p>
+
+    <div class="decision-grid">
+      <div class="decision-card yes">
+        <h4>A card can be a useful tool if you…</h4>
+        <ul>
+          <li>Can consistently pay the full balance each month</li>
+          <li>Understand how interest and fees work</li>
+          <li>Want to start building responsible financial habits</li>
+        </ul>
+      </div>
+      <div class="decision-card no">
+        <h4>It's probably worth waiting if…</h4>
+        <ul>
+          <li>Your income is inconsistent</li>
+          <li>You tend to overspend</li>
+          <li>You're not in the habit of tracking your expenses</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Credit cards aren't inherently good or bad. They're just tools, and their impact depends almost entirely on how you use them. In Australia, you genuinely don't need one to build a strong financial future. But if you do choose to get one, the responsibility for how it goes sits with you.</p>
+  </div>
+
+  <!-- Section 7: Cards on market -->
+  <div class="section">
+    <div class="section-label">Cards on market</div>
+    <div class="card-section-head">
+      <h2>Compare current offers</h2>
+      <p>Rates, fees, and promotional offers are subject to change — always verify with the bank before applying.</p>
+    </div>
+
+    <div class="card-tabs">
+      <button class="card-tab active" data-cat="all">All Cards</button>
+      <button class="card-tab" data-cat="rewards">Rewards Cards</button>
+      <button class="card-tab" data-cat="lowrate">Low Interest</button>
+      <button class="card-tab" data-cat="lowfee">Low Fee</button>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Rewards -->
+      <div class="card-tile" data-cat="rewards">
+        <div class="card-tile-bank">NAB</div>
+        <div class="card-tile-name">Qantas Rewards Premium</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$295 ($195 yr 1 for existing NAB customers)</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">20.99% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$6,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 44</span></div>
+        <div class="card-offer">60,000 pts + $150 back when you spend $3,000 in the first 90 days, plus 40,000 pts when you keep the card for 12+ months.</div>
+      </div>
+
+      <div class="card-tile" data-cat="rewards">
+        <div class="card-tile-bank">NAB</div>
+        <div class="card-tile-name">Rewards Platinum</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$195 ($95 yr 1 for existing NAB customers)</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">20.99% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$6,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 44</span></div>
+        <div class="card-offer">80,000 pts when you spend $3,000 in the first 90 days, plus 20,000 pts when you keep the card for 12+ months.</div>
+      </div>
+
+      <div class="card-tile" data-cat="rewards">
+        <div class="card-tile-bank">ANZ</div>
+        <div class="card-tile-name">Frequent Flyer Platinum</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$295</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">20.99% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$6,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 44</span></div>
+        <div class="card-offer">75,000 bonus Qantas Points + $100 back when you spend $2,500 on eligible purchases in the first 3 months from approval.</div>
+      </div>
+
+      <!-- Low interest -->
+      <div class="card-tile" data-cat="lowrate">
+        <div class="card-tile-bank">NAB</div>
+        <div class="card-tile-name">Low Rate</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$59</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">13.49% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$1,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 55</span></div>
+        <div class="card-offer">$400 cashback when you spend $5,000 on everyday purchases within 150 days of account opening.</div>
+      </div>
+
+      <div class="card-tile" data-cat="lowrate">
+        <div class="card-tile-bank">ANZ</div>
+        <div class="card-tile-name">Low Rate</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$58</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">13.74% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$1,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 55</span></div>
+        <div class="card-offer">$400 back when you spend $5,000 on eligible purchases in the first 6 months from approval.</div>
+      </div>
+
+      <div class="card-tile" data-cat="lowrate">
+        <div class="card-tile-bank">CBA</div>
+        <div class="card-tile-name">Low Rate</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$6/month ($72/year)</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">10.99%–15.99% p.a. (personalised rate on approval)</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$500</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 55</span></div>
+        <div class="card-offer">$70 back each month when you spend $500 or more per month for the first 6 months.</div>
+      </div>
+
+      <!-- Low fee -->
+      <div class="card-tile" data-cat="lowfee">
+        <div class="card-tile-bank">ANZ</div>
+        <div class="card-tile-name">Platinum</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$0 in year one, then $87 (waived each year if you spend $20,000+ on eligible purchases)</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">20.99% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$6,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 44</span></div>
+        <div class="card-offer">$450 back when you spend $4,500 on eligible purchases in the first 4 months from approval.</div>
+      </div>
+
+      <div class="card-tile" data-cat="lowfee">
+        <div class="card-tile-bank">ANZ</div>
+        <div class="card-tile-name">First</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$30</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">20.99% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$1,000</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 55</span></div>
+        <div class="card-offer">$220 back when you spend $1,500 on eligible purchases in the first 3 months from approval.</div>
+      </div>
+
+      <div class="card-tile" data-cat="lowfee">
+        <div class="card-tile-bank">CBA</div>
+        <div class="card-tile-name">Low Fee</div>
+        <div class="card-stat"><span class="cs-label">Annual fee</span><span class="cs-value">$3/month, waived if you spend $300+ in the statement period</span></div>
+        <div class="card-stat"><span class="cs-label">Purchase rate</span><span class="cs-value">20.99% p.a.</span></div>
+        <div class="card-stat"><span class="cs-label">Min. credit limit</span><span class="cs-value">$500</span></div>
+        <div class="card-stat"><span class="cs-label">Interest-free days</span><span class="cs-value">Up to 55</span></div>
+        <div class="card-offer">$40 back each month when you spend $500 or more per month for the first 6 months.</div>
+      </div>
+
+    </div>
+
+    <!-- Honourable mention -->
+    <div class="mention-box" style="margin-top:1.5rem;">
+      <div class="mention-label">Honourable Mention</div>
+      <h4>Qantas American Express Discovery Card</h4>
+      <p>If you want to start earning Qantas Points without paying an annual fee, this card is worth knowing about. You'll earn 0.75 points per dollar spent. Just keep in mind the earn rate is relatively low, so you'd need to spend consistently for a while before those points translate into anything meaningful like a flight.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-note">This article is for general educational purposes only and does not constitute financial advice. Product details including rates, fees, and promotional offers are subject to change — always verify directly with the relevant financial institution before applying.</p>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+  // Card filter tabs
+  document.querySelectorAll('.card-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.card-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cat = tab.dataset.cat;
+      document.querySelectorAll('.card-tile').forEach(tile => {
+        tile.classList.toggle('hidden', cat !== 'all' && tile.dataset.cat !== cat);
+      });
+    });
+  });
+</script>
+</body>
+</html>
